@@ -1,0 +1,2 @@
+class Seeder():
+    pass
