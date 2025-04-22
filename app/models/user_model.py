@@ -1,5 +1,5 @@
 from base.model import Model
-from main import db
+from config import db
 
 class UserModel(Model):
     __tablename__ = 'users' # название таблицы

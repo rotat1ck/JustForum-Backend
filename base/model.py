@@ -1,4 +1,4 @@
-from main import db
+from config import db
 
 class Model(db.Model):
-    pass
+    __abstract__ = True
