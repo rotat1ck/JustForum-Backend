@@ -16,4 +16,4 @@ if __name__ == '__main__':
     migrate.create()
     
     seeder = UserSeeder()
-    seeder.seed_object(10)
+    seeder.seed(10)

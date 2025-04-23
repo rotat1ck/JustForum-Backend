@@ -9,8 +9,8 @@ from app.models.user_model import UserModel
 class UserSeeder(Seeder):
     faker = Faker()
     
-    def seed_object(self, iterations):
+    def seed(self, iterations):
         with app.app_context():
             for _ in range(iterations):
                 user = UserModel(username=self.faker.user_name(), email=self.faker.email(), hash=sha256(self.faker.password().encode('utf-8')).hexdigest(), role='user')
-                UserFactory().create_object(user)
+                UserFactory().create(user)
