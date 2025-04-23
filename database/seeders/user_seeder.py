@@ -12,5 +12,5 @@ class UserSeeder(Seeder):
     def seed_object(self, iterations):
         with app.app_context():
             for _ in range(iterations):
-                user = UserModel(username=self.faker.user_name(), email=self.faker.email(), hash=sha256(self.faker.password().encode('utf-8')).hexdigest())
+                user = UserModel(username=self.faker.user_name(), email=self.faker.email(), hash=sha256(self.faker.password().encode('utf-8')).hexdigest(), role='user')
                 UserFactory().create_object(user)

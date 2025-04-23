@@ -7,6 +7,8 @@ from database.seeders.user_seeder import UserSeeder
 
 # миграции будут производиться только на таблицах чьи модели импортированы
 from app.models.user_model import UserModel # также можно вместо класса импортировать *
+from app.models.article_model import ArticleModel # таблица статей
+from app.models.category_model import CategoryModel # таблица категорий
 
 if __name__ == '__main__':
     migrate = Migrate()
