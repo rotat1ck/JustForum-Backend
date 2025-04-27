@@ -7,5 +7,5 @@ class RatingModel(Model):
     user_id = db.Column(db.Integer, unique=False, nullable=False) # id пользователя, поставившего оценку
     article_id = db.Column(db.Integer, unique=False, nullable=False) # id статьи
     value = db.Column(db.Integer, nullable=False) # значение рейтинга
-    created_at = db.Column(db.DateTime, nullable=False) # дата создания оценки
-    updated_at = db.Column(db.DateTime, nullable=False) # дата редактирования оценки
+    created_at = db.Column(db.Integer, nullable=False) # дата создания оценки
+    updated_at = db.Column(db.Integer, nullable=False) # дата редактирования оценки

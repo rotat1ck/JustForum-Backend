@@ -9,5 +9,5 @@ class ArticleModel(Model):
     title = db.Column(db.String(50), nullable=False) # название статьи
     description = db.Column(db.String(200), nullable=True) # описание статьи
     content = db.Column(db.Text, nullable= False) # контент статьи
-    created_at = db.Column(db.DateTime, nullable=False) # дата создания статьи
-    updated_at = db.Column(db.DateTime, nullable=False) # дата редактирования статьи
+    created_at = db.Column(db.Integer, nullable=False) # дата создания статьи
+    updated_at = db.Column(db.Integer, nullable=False) # дата редактирования статьи
