@@ -4,6 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from database.migrations.migrate import Migrate
 from database.seeders.user_seeder import UserSeeder
+from database.seeders.article_seeder import ArticleSeeder
 
 # миграции будут производиться только на таблицах чьи модели импортированы
 from app.models.user_model import UserModel # также можно вместо класса импортировать *
@@ -15,5 +16,8 @@ if __name__ == '__main__':
     migrate.drop()
     migrate.create()
     
-    seeder = UserSeeder()
-    seeder.seed(10)
+    user_seeder = UserSeeder()
+    user_seeder.seed(10)
+    
+    article_seeder = ArticleSeeder()
+    article_seeder.seed(10)
