@@ -7,6 +7,7 @@ from database.seeders.user_seeder import UserSeeder
 from database.seeders.article_seeder import ArticleSeeder
 from database.seeders.comment_seeder import CommentSeeder
 from database.seeders.rating_seeder import RatingSeeder
+from database.seeders.category_seeder import CategorySeeder
 
 # миграции будут производиться только на таблицах чьи модели импортированы
 from app.models.user_model import UserModel # также можно вместо класса импортировать *
@@ -31,3 +32,6 @@ if __name__ == '__main__':
     
     rating_seeder = RatingSeeder()
     rating_seeder.seed(10)
+
+    category_seeder = CategorySeeder()
+    category_seeder.seed(-1)
