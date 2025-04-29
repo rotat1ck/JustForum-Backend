@@ -25,7 +25,7 @@ if __name__ == '__main__':
     user_seeder.seed(10)
     
     article_seeder = ArticleSeeder()
-    article_seeder.seed(10)
+    article_seeder.seed()
     
     comment_seeder = CommentSeeder()
     comment_seeder.seed(10)
