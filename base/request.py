@@ -1,2 +1,8 @@
+from abc import ABC, abstractmethod
 class Request():
-    pass
+    def password(password):
+        pass
+
+    @abstractmethod
+    def validate(self):
+        pass
