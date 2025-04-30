@@ -1,10 +1,9 @@
-from config import app
+from config import app, db
 from faker import Faker
 from time import time
 from random import randint
 
 from base.factory import Factory
-from config import db
 from app.models.article_model import ArticleModel
 
 class ArticleFactory(Factory):

@@ -3,8 +3,8 @@ from config import db, app
 from app.models.category_model import CategoryModel
 
 class CategoryFactory(Factory):
-    def create(self, category_object):
-        with app.app_context:
+    def create(self):
+        with app.app_context():
             db.session.add(CategoryModel(
                 title = "Свободная"
             ))
@@ -27,7 +27,7 @@ class CategoryFactory(Factory):
                 title = "Слушаем и не осуждаем"
             ))
             db.session.add(CategoryModel(
-                    title = "Слушаем и осуждаем"
+                title = "Слушаем и осуждаем"
             ))
 
             db.session.commit()
