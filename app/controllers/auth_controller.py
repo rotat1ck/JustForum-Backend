@@ -9,7 +9,6 @@ from time import time
 from hashlib import sha256
 
 class AuthController(Controller):
-    @staticmethod
     def register():
         reqvalid = RegisterRequest()
         params = request.get_json()
@@ -22,8 +21,9 @@ class AuthController(Controller):
             username = params.get("username"),
             email = params.get("email"),
             password = sha256(params.get("username").encode('utf-8')).hexdigest(),
+            role = 1
         )
         db.session.add(new_user)
         db.session.commit()
         
-        return jsonify({"message": "User successfully created"}), 200
+        return jsonify({"user": new_user}), 200
