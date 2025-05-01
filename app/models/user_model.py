@@ -8,6 +8,16 @@ class UserModel(Model):
     email = db.Column(db.String(120), unique=True, nullable=False) # email пользователя
     password = db.Column(db.String(120), nullable=False) # захэшированный пароль
     role = db.Column(db.Integer, nullable=False) # роль пользователя (1, 3, 7, 15)
-    email_verified_at = db.Column(db.Datetime, nullable=True, default=False) # верификация email
-    is_email_verified = db.Column(db.Boolean, nullable=False) # статус верификации email
-    is_banned = db.Column(db.Boolean, nullable=False) # статус блокировки пользователя
+    email_verified_at = db.Column(db.Integer, nullable=True) # верификация email
+    is_email_verified = db.Column(db.Boolean, nullable=False, default=False) # статус верификации email
+    is_banned = db.Column(db.Boolean, nullable=False, default=False) # статус блокировки пользователя
+    
+    def serialize(self):
+        return {
+            "id": self.id,
+            "username": self.username,
+            "email": self.email,
+            "role": self.role,
+            "is_email_verified": self.is_email_verified,
+            "is_banned": self.is_banned
+        }

@@ -9,14 +9,29 @@ class RegisterRequest(Request):
         }
         #username
         if params.get("username") is None:
-            not_validated["errors"].append({"message": "Username is required"})
-        #email
-        if params.get("email") is None:
-            not_validated["errors"].append({"message": "Email is required"})
-        #password
-        if params.get("password") is None:
-            not_validated["errors"].append({"message": "Password is required"})
+            not_validated["errors"].append({"error": "Username is required"})
             
+        #email
+        email = params.get("email")
+        
+        if email is None:
+            not_validated["errors"].append({"error": "Email is required"})
+        
+        email_validated = self.email(email)
+        if email_validated["is_failure"]:
+            not_validated["errors"].append({"error": email_validated["error"]})
+            
+        #password
+        password = params.get("password")
+        
+        if password is None:
+            not_validated["errors"].append({"error": "Password is required"})
+        
+        password_validated = self.password(password)
+        if password_validated["is_failure"]:
+            not_validated["errors"].append({"error": password_validated["error"]})
+            
+        #return
         if len(not_validated["errors"]) > 0:
             not_validated["is_failure"] = True
         

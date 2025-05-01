@@ -26,4 +26,4 @@ class AuthController(Controller):
         db.session.add(new_user)
         db.session.commit()
         
-        return jsonify({"user": new_user}), 200
+        return jsonify({"user": new_user.serialize()}), 200
