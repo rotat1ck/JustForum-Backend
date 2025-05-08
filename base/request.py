@@ -14,6 +14,11 @@ class Request(ABC):
         }
         pattern = r"^.{8,}$"
         
+        if password is None:
+            not_validated["is_failure"] = True
+            not_validated["error"] = "Password is required"
+            return not_validated
+        
         if re.match(pattern, password) is None:
             not_validated["is_failure"] = True
             not_validated["error"] = "Entered password doesn't satisfy the requirements"
@@ -28,6 +33,11 @@ class Request(ABC):
             "is_failure": False
         }
         pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        
+        if email is None:
+            not_validated["is_failure"] = True
+            not_validated["error"] = "Email is required"
+            return not_validated
         
         #check
         if re.match(pattern, email) is None:
