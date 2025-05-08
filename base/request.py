@@ -18,13 +18,11 @@ class Request(ABC):
         if password is None:
             not_validated["is_failure"] = True
             not_validated["error"] = "Password is required"
-            return not_validated
         
         # проверка по паттерну
         elif re.match(pattern, password) is None:
             not_validated["is_failure"] = True
             not_validated["error"] = "Entered password doesn't satisfy the requirements"
-            return not_validated
         
         return not_validated
     
